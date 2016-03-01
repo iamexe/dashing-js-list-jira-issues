@@ -5,6 +5,7 @@ var host = 'jira.myteam.ru';
 var protocol = 'http';
 var username = 'admin';
 var password = 'thepassword';
+var jql = 'project in (BACK, FRONT) AND issuetype = Ошибка ORDER BY priority DESC';
 
 
 var jira = new JiraClient( {
@@ -16,7 +17,6 @@ var jira = new JiraClient( {
     }
 });
 
-var jql = 'project in (BACK, FRONT) AND issuetype = Ошибка ORDER BY priority DESC';
 var blockersCount;
 var issuesArray;
 
@@ -46,8 +46,7 @@ setInterval(function() {
 	});  
 
   
-  send_event('jira-list-issues-jql', { header: 'Блокеры', issue_type: "", issues: issues});
-  send_event('blockers', {value: blockersCount});
+  send_event('jira-list-issues-jql', { header: 'Bugs', issue_type: "Sub-title", issues: issues});
   issues = [];
   
 }, 2 * 60000);
