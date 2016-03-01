@@ -1,7 +1,7 @@
 var JiraClient = require('jira-connector');
 require('dashing-js');
 
-//Edit this auth inforamtion
+//Edit this auth information
 var host = 'jira.myteam.ru';
 var protocol = 'http';
 var username = 'admin';
